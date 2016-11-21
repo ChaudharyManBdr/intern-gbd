@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<head>
+	<title>GBD</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
+	<link rel="shortcut icon" href="favicon.ico"  type="image/x-icon">
+	<script src="jquery.js"></script>
+	<script src="jquery-ui.js"></script>
+</head>
+
+<body>
+	<div class="headerContainer"> <!-- begining of fixed header section -->
+		<header class="header"> <img src="logo.png"> </header> <!-- ending of header tag -->
+		<nav>
+			<ul>
+				<li><span style="font-size:30px;color:white;cursor:pointer" onclick="openNav()">&#9776; open</span></li>		
+				<li> <a href="index.html">Home</a> </li>
+				<li> <a href="portfolio.html">Portfolio</a> </li>
+				<li> <a href="#">Projects</a> </li>
+				<li> <a href="#">Career</a> </li>
+				<li> <a href="about_us.html">About Us</a> </li>
+				<li> <a href="contact_us.html">Contact Us</a> </li>
+			</ul>
+		</nav>	<!-- ending of nav tag -->
+
+	</div>  <!-- ending of top header fixed section -->
+
+	<nav id="fixedbar"> <!-- fixed nav bar for floating after scroll -->
+		<ul id="fixednav">
+			<li><a href="#">Homepage</a></li>
+			<li><a href="#">About Us</a></li>
+			<li><a href="#">Community</a></li>
+			<li><a href="#">Staff Members</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</nav>
+
+
+		<div id="mySideNav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<a href="about_us.html">About</a>
+			<a href="#">Services</a>
+			<a href="#">Clients</a>
+			<a href="contact_us.html">Contact</a>
+		</div>  <!-- ending of div side nav -->	
+
+		<div class="left-nav" id="left-nav-slide" style="left:-240px; display:block;">	
+		</div>  <!--ending of anchored-left-nav  div -->
+
+		<div class="popup-wrapper">
+			<div id="popup" onclick="popupClose()">
+				<div id="display"> 
+					<img src="img1.jpg" height=150 width=220 style="padding:20px"><br>
+					<img src="img2.jpg" height=200 width=220 style="padding:20px">
+
+				</div> <!-- ending of diplay inside the popup box -->
+
+			</div>  <!-- ending of div popup   --> 
+
+			<div id="popup-open" onclick="changeText();"><!-- side bar for clicking purpose in order to toggle the popup -->
+				<div class="text-block">
+					<div class="block-vcenter">
+						<p id='text'> C<br><br>L<br><br>O<br><br>S<br><br>E </p>						
+					</div>
+				</div>
+			</div> 
+
+		</div><!-- closing of wrapper popup -->
+		
+
+		<div class="mainContainer">
+			<img src="img/gbd1.jpg" height="370px" width="700px" align="center" style="margin-bottom: 5px ">
+			<img src="img/gbd2.jpg" height="370px" width="700px" align="center" style="margin-bottom: 5px " >
+			<img src="img/gbd3.jpg" height="370px" width="700px" align="center" style="margin-bottom: 5px " >
+			<img src="img/gbd4.jpg" height="370px" width="700px" align="center" style="margin-bottom: 5px " >
+
+		</div>
+		<footer> </footer>
+
+		<script>
+
+		 /*
+			$(document).ready(function(){
+		   	
+				$("#popup").click(function(){
+				  	$("#popup").animate({left:'270px'}, "slow");
+				});
+				
+				
+				
+			});  
+			function popupOpen(){
+				$("#popup-open").click(function(){
+					$("#popup").animate({right:'270px',left:'270px'}, "slow");
+				}); 
+			}
+			function popupClose(){
+				$("#popup").click(function(){
+				  	$("#popup").animate({left:'270px'}, "slow");
+				});
+			}*/
+
+
+			$(document).ready(function(){
+				$("#popup-open").click(function(){
+					$("#popup").animate({
+						width: 'toggle'
+					});
+				});
+
+			});
+/*				
+			
+			//function for popup by checking the position of the div
+
+			function changeText(){
+				var position = $('#popup-open').offset();
+				//alert(position['left']);
+				if(position['left'] != 998){
+					$('#text').html("C</br></br>L<br><br>O<br><br>S<br><br>E");
+
+				}
+				else{
+					$('#text').html("O<br><br>P<br><br>E<br><br>N");
+
+				}	
+			}
+*/
+
+			// function for popup by checking the vidibility, this is better than checking div position
+
+			function changeText(){
+				var p = $('#popup').is(":visible");
+				if(p !== true){
+					$('#text').html("C</br></br>L<br><br>O<br><br>S<br><br>E");	
+				}
+				else{
+					$('#text').html("O<br><br>P<br><br>E<br><br>N");
+				}
+			}
+
+			function openNav(){
+				document.getElementById("mySideNav").style.width="250px";
+		
+			}
+			function closeNav(){
+				document.getElementById("mySideNav").style.width="0";
+			}
+
+		</script>
+
+		// script for making floating fixed navbar after scrolling 
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				$(document).on('scroll',function() {
+					var scrolltop = $(this).scrollTop();
+				//	alert(scrolltop);
+
+					if(scrolltop >= 200) {
+						$('#fixedbar').fadeIn('slow');
+
+						openNav();								
+					}
+					else if(scrolltop <= 200) {
+						$('#fixedbar').fadeOut(100);
+						closeNav();
+						
+					}
+
+					if(scrolltop > 300){
+						$('#popup').hide('slow', function(){				if($('#popup').is(":visible") == true){
+								$('#text').html("C</br></br>L<br><br>O<br><br>S<br><br>E");	
+							}
+							else{
+								$('#text').html("O<br><br>P<br><br>E<br><br>N");
+							}
+
+						});
+						//changeText();			
+					}
+					else{
+						$('#popup').show('slow', function(){				if($('#popup').is(":visible") == true){
+								$('#text').html("C</br></br>L<br><br>O<br><br>S<br><br>E");	
+							}
+							else{
+								$('#text').html("O<br><br>P<br><br>E<br><br>N");
+							}
+
+						});
+						
+					}
+
+
+				});
+			});
+
+
+		</script>
+	</body>
+	</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<head>
+	<title>GBD</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
+	<link rel="shortcut icon" href="favicon.ico"  type="image/x-icon">
+	<script src="jquery.js"></script>
+	<script src="jquery-ui.js"></script>
+</head>
+
+<body>
+	<header> <img src="logo.png"> </header> <!-- ending of header tag -->
+	<nav>
+		<ul>
+			<li><span style="font-size:30px;color:white;cursor:pointer" onclick="openNav()">&#9776; open</span></li>		
+			<li> <a href="index.html">Home</a> </li>
+			<li> <a href="portfolio.html">Portfolio</a> </li>
+			<li> <a href="#">Projects</a> </li>
+			<li> <a href="#">Career</a> </li>
+			<li> <a href="about_us.html">About Us</a> </li>
+			<li> <a href="contact_us.html">Contact Us</a> </li>
+		</ul>
+	</nav>	<!-- ending of nav tag -->
+
+	<nav id="fixedbar"> <!-- fixed nav bar for floating after scroll -->
+		<ul id="fixednav">
+			<li><a href="#">Homepage</a></li>
+			<li><a href="#">About Us</a></li>
+			<li><a href="#">Community</a></li>
+			<li><a href="#">Staff Members</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</nav>
+
+	<div id="mySideNav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="about_us.html">About</a>
+		<a href="#">Services</a>
+		<a href="#">Clients</a>
+		<a href="contact_us.html">Contact</a>
+	</div>  <!-- ending of div side navigation -->
+
+	<div class="left-nav" id="left-nav-slide" style="left:-240px; display:block;">
+		
+	</div>  <!--ending of anchored-left-nav  div -->
+
+	<div id="popup">
+		<div id="display"> 
+			<img src="img1.jpg" height=150 width=220 style="padding:20px"><br>
+			<img src="img2.jpg" height=200 width=220 style="padding:20px">
+		</div> <!-- ending of diplay inside the popup box -->
+	</div>  <!-- ending of div popup --> 
+
+	<div id="popup-open" onclick="changeText();"> 
+		<div class="text-block">
+			<div class="block-vcenter">
+				<p id='text'> C<br><br>L<br><br>O<br><br>S<br><br>E </P>
+				</div>
+			</div>
+		</div> <!-- side bar for clicking purpose in order to toggle the popup -->
+
+
+	</div> <!-- ending of div main -->
+
+<!-- <div>
+	<table col=2 rows=5 border=1>
+		<form method="post" action="#">
+		<tr>
+			<td><label for="Name">Name:</label> </td>
+			<td><input type="text" name="Name" id="Name" /></td> <br><br> 
+		</tr>
+		<tr>		
+			<td><label for="City">City:</label></td>
+			<td><input type="text" name="City" id="City" /></td>  <br><br>
+		</tr>
+		<tr>
+	
+			<td><label for="Email">Email:</label></td>
+			<td><input type="text" name="Email" id="Email" /></td>  <br><br>
+		</tr>
+		<tr>
+				
+			<td><label for="Message">Message:</label></td>
+			<td><textarea name="Message" rows="10" cols="30" id="Message"></textarea></td>  <br><br>
+		</tr>
+
+		<tr>	<td><input type="submit" name="submit" value="Submit" class="submit-button" /> </td>
+		</tr>
+		</form>
+	</table>
+
+</div>                 -->
+<div class="mainContainer">
+	<div class="contact_container">  
+		<form id="contact" action="" method="post">
+			<h3>Quick Contact</h3>
+			<h4>Contact us today, and get reply with in 24 hours!</h4>
+			<fieldset>
+				<input id="name" placeholder="Your name" type="text" tabindex="1" required autofocus onchange="myFunction()">
+			</fieldset>
+			<fieldset>
+				<input id="email" placeholder="Your Email Address" type="email" tabindex="2" required>
+			</fieldset>
+			<fieldset>
+				<input id="phone" placeholder="Your Phone Number" type="tel" tabindex="3" required>
+			</fieldset>
+			<fieldset>
+				<input id="website" placeholder="Your Web Site starts with http://" type="url" tabindex="4" required>
+			</fieldset>
+			<fieldset>
+				<textarea id="message" placeholder="Type your Message Here...." tabindex="5" required></textarea>
+			</fieldset>
+			<fieldset>
+				<button name="submit" type="submit" id="submit" data-submit="...Sending">Submit</button>
+			</fieldset>
+		</form>
+
+
+	</div>  
+
+
+</div> <!-- ending of main container -->
+<footer> </footer>
+
+<script>
+	$(document).ready(function(){
+		$("#popup-open").click(function(){
+			$("#popup").animate({
+				width: 'toggle'
+			});
+		});
+	});
+
+	/*function changeText(){
+		var position = $('#popup-open').offset();
+		if(position['left'] != 998){
+			$('#text').html("C</br></br>L<br><br>O<br><br>S<br><br>E");		
+		}
+		else{
+			$('#text').html("O<br><br>P<br><br>E<br><br>N");		
+		}	
+	} */
+
+	function changeText(){
+		var p = $('#popup').is(":visible");
+		if(p !== true){
+			$('#text').html("C</br></br>L<br><br>O<br><br>S<br><br>E");	
+		}
+		else{
+			$('#text').html("O<br><br>P<br><br>E<br><br>N");
+		}
+	}
+
+	function openNav(){
+		document.getElementById("mySideNav").style.width="250px";
+	}
+	function closeNav(){
+		document.getElementById("mySideNav").style.width="0";
+	}
+	function myFunction(){
+		var name = document.getElementById("name");
+		name.value = name.value.toUpperCase();
+	}
+
+	$(document).ready(function(){
+		$('#submit').click(function(){
+			var name = $('#name').val();
+			var email = $('#email').val();
+			var phone = $('#phone').val();
+			var message = $('#message').val();
+
+			if(name == ''){
+				alert('Please fill your name !');
+			}
+
+		});
+
+	});
+</script>
+// script for making floating fixed navbar after scrolling 
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$(window).on('scroll',function() {
+			var scrolltop = $(this).scrollTop();
+		//	alert(scrolltop);
+
+			if(scrolltop >= 100) {
+				$('#fixedbar').fadeIn(250);
+			}
+
+			else if(scrolltop <= 100) {
+				$('#fixedbar').fadeOut(250);
+			}
+		});
+	});
+</script>
+</body>
+</html>
