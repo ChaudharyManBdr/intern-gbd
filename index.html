@@ -68,12 +68,16 @@
 		
 
 		<div class="mainContainer">
-			<img src="img/gbd1.jpg" height="370px" width="700px" align="center" style="margin-bottom: 5px ">
-			<img src="img/gbd2.jpg" height="370px" width="700px" align="center" style="margin-bottom: 5px " >
-			<img src="img/gbd3.jpg" height="370px" width="700px" align="center" style="margin-bottom: 5px " >
-			<img src="img/gbd4.jpg" height="370px" width="700px" align="center" style="margin-bottom: 5px " >
+			<img  src="img/gbd1.jpg" height="370px" width="700px"  style="margin-top:42px; margin-left: 100px; margin-bottom: 5px; ">
+			<img  src="img/gbd2.jpg" height="370px" width="700px"  style="margin-bottom: 5px;  margin-left: 100px; " >
+			<img src="img/gbd3.jpg" height="370px" width="700px" align="center" style="margin-bottom: 5px; margin-left: 100px;" >
+			<img src="img/gbd4.jpg" height="370px" width="700px" align="center" style="margin-bottom: 5px; margin-left: 100px; " >
 
 		</div>
+		<div id="bottomPopup" style="position:fixed; right:100px; bottom:-2px;">
+  			<img src="img/img-data.png" height="280px" width="280px">
+		</div>
+
 		<footer> </footer>
 
 		<script>
@@ -168,7 +172,8 @@
 					}
 
 					if(scrolltop > 300){
-						$('#popup').hide('slow', function(){				if($('#popup').is(":visible") == true){
+						$('#popup').hide('slow', function(){
+							if($('#popup').is(":visible") == true){
 								$('#text').html("C</br></br>L<br><br>O<br><br>S<br><br>E");	
 							}
 							else{
@@ -176,10 +181,13 @@
 							}
 
 						});
+
+						$('#bottomPopup').fadeIn('slow');
 						//changeText();			
 					}
 					else{
-						$('#popup').show('slow', function(){				if($('#popup').is(":visible") == true){
+						$('#popup').show('slow', function(){				
+							if($('#popup').is(":visible") == true){
 								$('#text').html("C</br></br>L<br><br>O<br><br>S<br><br>E");	
 							}
 							else{
@@ -187,6 +195,8 @@
 							}
 
 						});
+
+						$('#bottomPopup').fadeOut('slow');
 						
 					}
 
