@@ -113,16 +113,22 @@
 				<p><b>90 DAY MONEY BACK GUARANTEE</b></p> 
 			</div>
 
-			<div style="padding-top: 10px; padding-bottom: 30px;">
+			<div style="padding-top: 10px; padding-bottom: 30px; padding-left: 20px;">
 				<img src="uricol-img/6.jpg" style="vertical-align:middle;">
 				<span style="color: blue;">*</span>All orders are secured with 256 bit encryption technology. <br>
 				Products are shipped in discrete packages to maintain your privacy. <br>
 				All orders received before 4:00 p.m. EST will be shipped same day.
 			</div> <!-- end of lock symbol containing div -->
 			<div></div>
-			
+					<div class="tabs">
+							<div class="tab-links" id="tab1">1 Bottle—1 Month Therap</div>
+							<div class="tab-links" id="tab2">3 Bottles—3 Month Therapy</div>
+							<div class="tab-links" id="tab3">AutoShip Program</div>
+					</div>
 			<div class="main-body">
-				<div class="col3"> <span style="font-size: 17px; padding:18px; font-weight: bold; color: #333300;">1 Bottle—1 Month Therapy</span>
+
+				<div class="col3"><!-- <span style="font-size: 17px; padding:18px; font-weight: bold; color: #333300;">1 Bottle—1 Month Therapy</span>-->
+	
 					<div class="div-top">
 						<div style="height: 240px; border-bottom: 1px solid;">
 							<img src="uricol-img/7.png" style="height: 230px; width: 198px;">
@@ -133,11 +139,13 @@
 							<p>This option yields relief by reducing pain and inflammation and nurturing uric acid back to healthy levels.
 							</p>
 
-							<span style="font-size: 17px;color:  #5c5c3d;position: absolute;bottom: 10px;">or Call 888-754-0313 (24/7)</span>
+							<span style="font-size:17px; color:#5c5c3d; position:absolute; bottom:10px;">or Call 888-754-0313 (24/7)</span>
 						</div>	
-					</div>				
+					</div>
+					<div class="overlap" id="over1">	</div>			
 				</div> <!-- ending of first div among three col3 -->
-				<div class="col3"><span style="font-size: 17px; padding:18px; font-weight: bold; color: #333300;"> 3 Bottles—3 Month Therapy</span>
+				<div class="col3"><!-- <span style="font-size: 17px; padding:18px; font-weight: bold; color: #333300;"> 3 Bottles—3 Month Therapy</span>  -->
+					
 					<div class="div-top">
 						<div style="height: 240px; border-bottom: 1px solid;">
 							<img src="uricol-img/8.png" style=" height: 230px; width: 198px;">
@@ -151,8 +159,10 @@
 							<span style="font-size: 17px;color:  #5c5c3d;position: absolute;bottom: 10px;">or Call 888-754-0313 (24/7)</span>
 						</div>
 					</div>
+						<div class="overlap" id="over2">	</div>		
 				</div>
-				<div class="col3"><span style="font-size: 17px; padding:18px; font-weight: bold; color: #333300;"> AutoShip Program</span>
+				<div class="col3"><!-- <span style="font-size: 17px; padding:18px; font-weight: bold; color: #333300;"> AutoShip Program</span>   -->
+					
 					<div class="div-top">
 						<div style="height: 240px; border-bottom: 1px solid;">
 							<img src="uricol-img/9.png" style="height: 205px;">
@@ -166,16 +176,17 @@
 							<span style="font-size: 17px;color:  #5c5c3d;position: absolute;bottom: 10px;">or Call 888-754-0313 (24/7)</span>
 						</div>
 					</div>
+							<div class="overlap" id="over3">	</div>		
 				</div>
 
 			</div><!-- ending of ad-box main body div -->
 
 
 			<div style="text-align: center;">
-				<img src="uricol-img/10.png">
+				<a href="#"><img src="uricol-img/10.png"></a>
 			</div>
 			<div class="click-btn" style="text-align: center;">
-				<p>For all European Orders Please Click Here</p>
+				<a href="#">For all European Orders Please Click Here</a>
 			</div>
 			<div style="text-align: center; padding: 24px;">
 				<img src="uricol-img/11.jpg">
@@ -314,6 +325,68 @@
 		});
 
 
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('.click-btn').mouseenter(function(){
+				 $(this).css("background-color", "#005900");
+			});
+			$('.click-btn').mouseleave(function(){
+				 $(this).css("background-color", "#009900");
+			});
+
+				$('.tab-links').bind("mouseover", function(){
+            		var color  = $(this).css("background-color");
+            		$(this).css("background", " #1a75ff");
+
+            		$(this).bind("mouseout", function(){
+                		$(this).css("background", color);
+            		});   
+       			 });   
+
+
+       			
+       		/*	
+       			$('#tab1').click(function(){      				
+       				$('#over2').show();
+       				$('#over3').show();
+       			});
+       			$('#tab2').click(function(){      				
+       				$('#over1').show();
+       				$('#over3').show();
+       			});
+       			$('#tab3').click(function(){      				
+       				$('#over1').show();
+       				$('#over2').show();
+       			});
+
+       			function showOverlap(e){
+
+       			} */
+       			$('.overlap').hide();
+       			
+       				$('#tab1').click(function() {
+				      var id = $(this).attr('id');
+				      $('#over1').hide();
+				      $('#over2').show();
+				      $('#over3').show();
+				    });
+				    $('#tab2').click(function() {
+				      var id = $(this).attr('id');
+				      $('#over1').show();
+				      $('#over2').hide();
+				      $('#over3').show();
+				    });
+				    $('#tab3').click(function() {
+				      var id = $(this).attr('id');
+				      $('#over1').show();
+				      $('#over2').show();
+				      $('#over3').hide();
+				    });
+
+       		
+		});
 	</script>
 </body>
 </html>

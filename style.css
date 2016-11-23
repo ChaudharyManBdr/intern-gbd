@@ -236,6 +236,7 @@ fieldset {
 .block-vcenter{
 	display: table-cell;
 	vertical-align: middle;
+	cursor: pointer;
 }
 
 .popup-wrapper {
@@ -323,7 +324,7 @@ fieldset {
 	
 }
 .ad-box .col-m-box {
-	background: #ffe6e6;
+	background: #ffffe6;
     border: 1px solid #5c8a8a;
     margin: 10px;    
     padding-left: 18px;
@@ -350,17 +351,20 @@ fieldset {
     width: 33.33%;
     float: left;
    box-sizing: border-box;
+   position: relative;
+       margin-bottom: 8px;
 }
 .ad-box .main-body .col3 .div-top{
-	background: #ccffdd;
+	background: #ffffff;
     border: 1px solid #5c8a8a;
     height: 550px;
     padding-left: 18px;
     padding-right: 13px;
     margin:10px;
+    position: relative;
 }
 .click-btn {
-    background: #009900;
+    background: #36780f;
     border-radius: 15px;
     color: white;
     height: 40px;
@@ -371,4 +375,41 @@ fieldset {
     /* padding-top: 4px; */
     line-height: 40px;
     /* vertical-align: middle; */
+        margin-top: 10px;
 }
+.click-btn a{
+	color:white;
+	text-decoration: none;
+}
+/* for creating the tabs */
+.ad-box .tabs {
+    width: 100%;
+ 	position: relative;
+}
+
+
+ .ad-box .tab-links {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333300;
+    display: bolck-inline;
+    background: #b3d1ff;
+    border-radius: 15px 15px 0 0;
+    width: 30.33%;
+    position: relative;
+    float: left;
+    padding: 7px;
+    margin: 4px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.overlap{
+	position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.4);
+}
+}
+
