@@ -9,7 +9,7 @@
 
 	<body>
 		<div class="headerContainer"> <!-- begining of fixed header section -->
-			<header class="header"> <img src="logo.png"> </header> <!-- ending of header tag -->
+			<header class="header"> <img src="logo.png"><p id="welcome" style="position: absolute; top: 55px; right: 117px;"></p> </header> <!-- ending of header tag -->
 			<nav>
 				<ul>
 					<li><span style="font-size:30px;color:white;cursor:pointer" onclick="openNav()">&#9776; open</span></li>		
@@ -17,7 +17,7 @@
 					<li> <a href="portfolio.html">Portfolio</a> </li>
 					<li> <a href="#">Projects</a> </li>
 					<li> <a href="#">Career</a> </li>
-					<li> <a href="about_us.html">About Us</a> </li>
+					<li> <a href="about_us.html" onClick="checkCookie()">About Us</a> </li>
 					<li> <a href="contact_us.html">Contact Us</a> </li>
 				</ul>
 			</nav>	<!-- ending of nav tag -->
@@ -37,7 +37,7 @@
 
 		<div id="mySideNav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-			<a href="about_us.html">About Us</a>
+			<a href="about_us.html" onClick="checkCookie()">About</a>
 			<a href="#">Services</a>
 			<a href="#">Clients</a>
 			<a href="contact_us.html">Contact</a>
@@ -424,6 +424,39 @@
 	       		
 			});
 		</script>
+
+		<script type="text/javascript">
+			window.onload= function(){
+			checkCookie();
+			};
+			function setCookie(cname,cvalue) {    
+				document.cookie = cname + "=" + cvalue ;
+			}
+			function getCookie(cname) {
+				if(document.cookie != null){
+				   var user = document.cookie.split("=");
+				   return user[1];
+				}
+			   else {
+				  return "";
+				}
+			}
+
+			function checkCookie() {
+				var user=getCookie("username");
+				if (user != null) {
+					//alert("Welcome again " + user);
+					$("#welcome").text("Welcome: " + user);
+				} else {
+				   user = prompt("Please enter your name:");
+				   if (user != "" && user != null) {
+					   setCookie("username", user);
+				   }
+				}
+			}
+			
+		</script>
+
 
 	</body>
 	</html>
