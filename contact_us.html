@@ -8,12 +8,12 @@
 </head>
 
 <body>
-	<header> <img src="logo.png"> </header> <!-- ending of header tag -->
+	<header> <img src="logo.png"> <p style="position: absolute;top: 55px;right: 117px;"></p> </header> <!-- ending of header tag -->
 	<nav>
 		<ul>
 			<li><span style="font-size:30px;color:white;cursor:pointer" onclick="openNav()">&#9776; open</span></li>		
 			<li> <a href="index.html">Home</a> </li>
-			<li> <a href="portfolio.html">Portfolio</a> </li>
+			<li> <a href="#">Portfolio</a> </li>
 			<li> <a href="#">Projects</a> </li>
 			<li> <a href="#">Career</a> </li>
 			<li> <a href="about_us.html">About Us</a> </li>
@@ -27,16 +27,16 @@
 			<li><a href="#">About Us</a></li>
 			<li><a href="#">Community</a></li>
 			<li><a href="#">Staff Members</a></li>
-			<li><a href="#">Contact</a></li>
+			<li><a href="#">Contact Us</a></li>
 		</ul>
 	</nav>
 
 	<div id="mySideNav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<a href="about_us.html">About</a>
+		<a href="about_us.html">About Us</a>
 		<a href="#">Services</a>
 		<a href="#">Clients</a>
-		<a href="contact_us.html">Contact</a>
+		<a href="contact_us.html">Contact Us</a>
 	</div>  <!-- ending of div side navigation -->
 
 	<div class="left-nav" id="left-nav-slide" style="left:-240px; display:block;">
@@ -118,8 +118,8 @@
 	</div>  
 
 
-</div> <!-- ending of main container -->
-<footer> </footer>
+</div> <!-- ending of main container 
+<footer> </footer>           -->
 
 <script>
 	$(document).ready(function(){
@@ -176,8 +176,9 @@
 
 	});
 </script>
-// script for making floating fixed navbar after scrolling 
+
 <script type="text/javascript">
+// script for making floating fixed navbar after scrolling 
 	$(document).ready(function(){
 
 		$(window).on('scroll',function() {
